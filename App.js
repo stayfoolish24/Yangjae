@@ -11,11 +11,18 @@ import React, { Component } from 'react'
 import { AsyncStorage, StyleSheet, Text, View } from 'react-native'
 
 class App extends Component {
-  exec = async () => {
-    const realnumber = await AsyncStorage.getItem('thanosNumber')
-    if (realnumber) {
+  execute = async () => {
+    const result = await AsyncStorage.getItem('thanosNumber')
+    if (result) {
+      this.setState({
+        thanosNumber: Number(result)
+      })
     } else {
-      this.setState({})
+      const newNumber = Math.random()
+      this.setState({
+        thanosNumber: newNumber
+      })
+      AsyncStorage.setItem('thanosNumber', newNumber.toString())
     }
   }
   constructor() {
@@ -24,6 +31,7 @@ class App extends Component {
       thanosNumber: Math.random()
     }
 
+    this.execute()
     // // 데이터베이스에서 가져온 다음
     // AsyncStorage.getItem('thanosNumber', (error, result) => {
     //   if (result) {
