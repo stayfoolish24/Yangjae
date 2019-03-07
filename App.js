@@ -25,30 +25,28 @@ class App extends Component {
       AsyncStorage.setItem('thanosNumber', newNumber.toString())
     }
   }
-  constructor() {
-    super()
-    this.state = {
-      thanosNumber: Math.random()
-    }
-
-    this.execute()
-    // // 데이터베이스에서 가져온 다음
-    // AsyncStorage.getItem('thanosNumber', (error, result) => {
-    //   if (result) {
-    //     // 기록이 있으면 있는 기록을 활용함
-    //     this.setState({
-    //       thanosNumber: Number(result)
-    //     })
-    //   } else {
-    //     // 기록이 전혀 없으면 새로 생성하고
-    //     const newNumber = Math.random()
-    //     this.setState({
-    //       thanosNumber: newNumber
-    //     })
-    //     AsyncStorage.setItem('thanosNumber', newNumber.toString())
-    //   }
-    // })
+  state = {
+    thanosNumber: Math.random()
   }
+
+  // this.execute()
+  // // 데이터베이스에서 가져온 다음
+  // AsyncStorage.getItem('thanosNumber', (error, result) => {
+  //   if (result) {
+  //     // 기록이 있으면 있는 기록을 활용함
+  //     this.setState({
+  //       thanosNumber: Number(result)
+  //     })
+  //   } else {
+  //     // 기록이 전혀 없으면 새로 생성하고
+  //     const newNumber = Math.random()
+  //     this.setState({
+  //       thanosNumber: newNumber
+  //     })
+  //     AsyncStorage.setItem('thanosNumber', newNumber.toString())
+  //   }
+  // })
+  // }
 
   result = () => {
     resultText = '당신은 타노스에게 죽임을 당하였습니다'
